@@ -2145,16 +2145,10 @@ var import_qrcode = __toESM(require_browser());
 var HTML_HOMEPAGE = `
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Xi Xu's QR Generator" />
-    <meta property="og:description" content="Welcome to Xi Xu's QR Generator!" />
-    <meta property="og:image" content="https://xi-xu.me/images/meta.png" />
-    <meta property="og:url" content="https://qr.xi-xu.me/" />
-    <title>Xi Xu's QR Generator</title>
-    <link rel="Shortcut Icon" href="https://xi-xu.me/images/favicon.png" type="image/x-icon">
+    <title>QR Generator</title>
     <style>
         body {
             display: flex;
@@ -2163,84 +2157,34 @@ var HTML_HOMEPAGE = `
             justify-content: center;
             height: 90vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
         }
-
-        h1 {
-            color: #0052D9;
-        }
-
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            margin-right: 10px;
-        }
-
-        input[type="text"] {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-
-        button {
-            padding: 8px 16px;
-            background-color: #0052D9;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0052D9;
-        }
-
         .footer {
             text-align: center;
             position: fixed;
             bottom: 5%;
             width: 100%;
-            font-size: 0.9em;
-            color: #666;
-        }
-
-        .footer a {
-            color: #0052D9;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
-    <h1>Xi Xu's QR Generator</h1>
-    <form id="proxyForm">
+    <h1>QR Generator</h1>
+    <form id="qrForm">
         <label for="urlInput">Enter text:</label>
         <input type="text" id="urlInput" name="url" required>
         <button type="submit">Generate QR code!</button>
     </form>
     <script>
-        document.getElementById('proxyForm').addEventListener('submit', function (event) {
+        document.getElementById('qrForm').addEventListener('submit', function (event) {
             event.preventDefault();
             let url = document.getElementById('urlInput').value;
-            window.open(\`/?text=\${encodeURIComponent(url)}\`, '_blank');
-});
-    <\/script>
-    <div class="footer">Copyright \xA9 2024 <a href="https://xi-xu.me/"><strong>Xi Xu</strong></a>, all rights
-        reserved.</div>
+            window.open(\`/text=\${encodeURIComponent(url)}\`, '_blank');
+        });
+    </script>
+    <div class="footer">
+        This service is built from the GitHub repository <a
+            href="https://github.com/xixu-me/QR-Generator">xixu-me/QR-Generator</a>.
+    </div>
 </body>
-
 </html>
 `;
 function generateHtml() {
