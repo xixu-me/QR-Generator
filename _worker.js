@@ -16,15 +16,10 @@ var __copyProps = (to, from, except, desc) => {
     return to;
 };
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-    // If the importer is in node compatibility mode or this is not an ESM
-    // file that has been converted to a CommonJS file using a Babel-
-    // compatible transform (i.e. "__esModule" has not been set), then set
-    // "default" to the CommonJS "module.exports" for node compatibility.
     isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
     mod
 ));
 
-// node_modules/qrcode/lib/can-promise.js
 var require_can_promise = __commonJS({
     "node_modules/qrcode/lib/can-promise.js"(exports, module) {
         module.exports = function () {
@@ -33,13 +28,11 @@ var require_can_promise = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/utils.js
 var require_utils = __commonJS({
     "node_modules/qrcode/lib/core/utils.js"(exports) {
         var toSJISFunction;
         var CODEWORDS_COUNT = [
             0,
-            // Not used
             26,
             44,
             70,
@@ -114,7 +107,6 @@ var require_utils = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/error-correction-level.js
 var require_error_correction_level = __commonJS({
     "node_modules/qrcode/lib/core/error-correction-level.js"(exports) {
         exports.L = { bit: 1 };
@@ -159,7 +151,6 @@ var require_error_correction_level = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/bit-buffer.js
 var require_bit_buffer = __commonJS({
     "node_modules/qrcode/lib/core/bit-buffer.js"(exports, module) {
         function BitBuffer() {
@@ -194,7 +185,6 @@ var require_bit_buffer = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/bit-matrix.js
 var require_bit_matrix = __commonJS({
     "node_modules/qrcode/lib/core/bit-matrix.js"(exports, module) {
         function BitMatrix(size) {
@@ -224,7 +214,6 @@ var require_bit_matrix = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/alignment-pattern.js
 var require_alignment_pattern = __commonJS({
     "node_modules/qrcode/lib/core/alignment-pattern.js"(exports) {
         var getSymbolSize = require_utils().getSymbolSize;
@@ -247,9 +236,7 @@ var require_alignment_pattern = __commonJS({
             const posLength = pos.length;
             for (let i = 0; i < posLength; i++) {
                 for (let j = 0; j < posLength; j++) {
-                    if (i === 0 && j === 0 || // top-left
-                        i === 0 && j === posLength - 1 || // bottom-left
-                        i === posLength - 1 && j === 0) {
+                    if (i === 0 && j === 0 || i === 0 && j === posLength - 1 || i === posLength - 1 && j === 0) {
                         continue;
                     }
                     coords.push([pos[i], pos[j]]);
@@ -260,26 +247,17 @@ var require_alignment_pattern = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/finder-pattern.js
 var require_finder_pattern = __commonJS({
     "node_modules/qrcode/lib/core/finder-pattern.js"(exports) {
         var getSymbolSize = require_utils().getSymbolSize;
         var FINDER_PATTERN_SIZE = 7;
         exports.getPositions = function getPositions(version) {
             const size = getSymbolSize(version);
-            return [
-                // top-left
-                [0, 0],
-                // top-right
-                [size - FINDER_PATTERN_SIZE, 0],
-                // bottom-left
-                [0, size - FINDER_PATTERN_SIZE]
-            ];
+            return [[0, 0], [size - FINDER_PATTERN_SIZE, 0], [0, size - FINDER_PATTERN_SIZE]];
         };
     }
 });
 
-// node_modules/qrcode/lib/core/mask-pattern.js
 var require_mask_pattern = __commonJS({
     "node_modules/qrcode/lib/core/mask-pattern.js"(exports) {
         exports.Patterns = {
@@ -430,12 +408,10 @@ var require_mask_pattern = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/error-correction-code.js
 var require_error_correction_code = __commonJS({
     "node_modules/qrcode/lib/core/error-correction-code.js"(exports) {
         var ECLevel = require_error_correction_level();
         var EC_BLOCKS_TABLE = [
-            // L  M  Q  H
             1,
             1,
             1,
@@ -598,7 +574,6 @@ var require_error_correction_code = __commonJS({
             81
         ];
         var EC_CODEWORDS_TABLE = [
-            // L  M  Q  H
             7,
             10,
             13,
@@ -791,7 +766,6 @@ var require_error_correction_code = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/galois-field.js
 var require_galois_field = __commonJS({
     "node_modules/qrcode/lib/core/galois-field.js"(exports) {
         var EXP_TABLE = new Uint8Array(512);
@@ -826,7 +800,6 @@ var require_galois_field = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/polynomial.js
 var require_polynomial = __commonJS({
     "node_modules/qrcode/lib/core/polynomial.js"(exports) {
         var GF = require_galois_field();
@@ -863,7 +836,6 @@ var require_polynomial = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/reed-solomon-encoder.js
 var require_reed_solomon_encoder = __commonJS({
     "node_modules/qrcode/lib/core/reed-solomon-encoder.js"(exports, module) {
         var Polynomial = require_polynomial();
@@ -896,7 +868,6 @@ var require_reed_solomon_encoder = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/version-check.js
 var require_version_check = __commonJS({
     "node_modules/qrcode/lib/core/version-check.js"(exports) {
         exports.isValid = function isValid(version) {
@@ -905,7 +876,6 @@ var require_version_check = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/regex.js
 var require_regex = __commonJS({
     "node_modules/qrcode/lib/core/regex.js"(exports) {
         var numeric = "[0-9]+";
@@ -933,7 +903,6 @@ var require_regex = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/mode.js
 var require_mode = __commonJS({
     "node_modules/qrcode/lib/core/mode.js"(exports) {
         var VersionCheck = require_version_check();
@@ -1022,7 +991,6 @@ var require_mode = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/version.js
 var require_version = __commonJS({
     "node_modules/qrcode/lib/core/version.js"(exports) {
         var Utils = require_utils();
@@ -1119,7 +1087,6 @@ var require_version = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/format-info.js
 var require_format_info = __commonJS({
     "node_modules/qrcode/lib/core/format-info.js"(exports) {
         var Utils = require_utils();
@@ -1137,7 +1104,6 @@ var require_format_info = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/numeric-data.js
 var require_numeric_data = __commonJS({
     "node_modules/qrcode/lib/core/numeric-data.js"(exports, module) {
         var Mode = require_mode();
@@ -1172,7 +1138,6 @@ var require_numeric_data = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/alphanumeric-data.js
 var require_alphanumeric_data = __commonJS({
     "node_modules/qrcode/lib/core/alphanumeric-data.js"(exports, module) {
         var Mode = require_mode();
@@ -1251,7 +1216,6 @@ var require_alphanumeric_data = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/byte-data.js
 var require_byte_data = __commonJS({
     "node_modules/qrcode/lib/core/byte-data.js"(exports, module) {
         var Mode = require_mode();
@@ -1281,7 +1245,6 @@ var require_byte_data = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/kanji-data.js
 var require_kanji_data = __commonJS({
     "node_modules/qrcode/lib/core/kanji-data.js"(exports, module) {
         var Mode = require_mode();
@@ -1320,7 +1283,6 @@ var require_kanji_data = __commonJS({
     }
 });
 
-// node_modules/dijkstrajs/dijkstra.js
 var require_dijkstra = __commonJS({
     "node_modules/dijkstrajs/dijkstra.js"(exports, module) {
         "use strict";
@@ -1421,7 +1383,6 @@ var require_dijkstra = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/segments.js
 var require_segments = __commonJS({
     "node_modules/qrcode/lib/core/segments.js"(exports) {
         var Mode = require_mode();
@@ -1608,7 +1569,6 @@ var require_segments = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/core/qrcode.js
 var require_qrcode = __commonJS({
     "node_modules/qrcode/lib/core/qrcode.js"(exports) {
         var Utils = require_utils();
@@ -1872,7 +1832,6 @@ var require_qrcode = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/renderer/utils.js
 var require_utils2 = __commonJS({
     "node_modules/qrcode/lib/renderer/utils.js"(exports) {
         function hex2rgba(hex) {
@@ -1955,7 +1914,6 @@ var require_utils2 = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/renderer/canvas.js
 var require_canvas = __commonJS({
     "node_modules/qrcode/lib/renderer/canvas.js"(exports) {
         var Utils = require_utils2();
@@ -2010,7 +1968,6 @@ var require_canvas = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/renderer/svg-tag.js
 var require_svg_tag = __commonJS({
     "node_modules/qrcode/lib/renderer/svg-tag.js"(exports) {
         var Utils = require_utils2();
@@ -2070,7 +2027,6 @@ var require_svg_tag = __commonJS({
     }
 });
 
-// node_modules/qrcode/lib/browser.js
 var require_browser = __commonJS({
     "node_modules/qrcode/lib/browser.js"(exports) {
         var canPromise = require_can_promise();
@@ -2140,7 +2096,6 @@ var require_browser = __commonJS({
     }
 });
 
-// src/index.js
 var import_qrcode = __toESM(require_browser());
 var HTML_HOMEPAGE = `
 <!DOCTYPE html>
@@ -2206,4 +2161,4 @@ var src_default = {
 export {
     src_default as default
 };
-//# sourceMappingURL=index.js.map
+
