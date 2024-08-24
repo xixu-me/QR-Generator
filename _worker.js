@@ -2182,7 +2182,7 @@ var HTML_HOMEPAGE = `
     </script>
     <div class="footer">
         This service is built from the GitHub repository <a
-            href="https://github.com/xixu-me/QR-Generator">xixu-me/QR-Generator</a>.
+            href="https://github.com/xixu-me/QR-Generator" target="_blank">xixu-me/QR-Generator</a>.
     </div>
 </body>
 </html>
