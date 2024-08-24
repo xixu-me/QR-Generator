@@ -1,0 +1,7 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "qr-code-generator"
+main = "src/index.js"
+compatibility_date = "2024-08-21"
+compatibility_flags = ["nodejs_compat"]
+[placement]
+mode = "smart"
