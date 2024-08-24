@@ -2177,7 +2177,7 @@ var HTML_HOMEPAGE = `
         document.getElementById('qrForm').addEventListener('submit', function (event) {
             event.preventDefault();
             let url = document.getElementById('urlInput').value;
-            window.open(\`/text=\${encodeURIComponent(url)}\`, '_blank');
+            window.open(\`/?text=\${encodeURIComponent(url)}\`, '_blank');
         });
     </script>
     <div class="footer">
