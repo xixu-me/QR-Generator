@@ -2142,9 +2142,11 @@ var HTML_HOMEPAGE = `
 </body>
 </html>
 `;
+
 function generateHtml() {
     return HTML_HOMEPAGE;
 }
+
 var src_default = {
     async fetch(request) {
         const { searchParams } = new URL(request.url);
