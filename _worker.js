@@ -2103,41 +2103,51 @@ var HTML_HOMEPAGE = `
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Generator</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 90vh;
-            margin: 0;
-        }
-        .footer {
-            text-align: center;
-            position: fixed;
-            bottom: 5%;
-            width: 100%;
-        }
-    </style>
+    <title>QR Code Generator</title>
 </head>
 <body>
-    <h1>QR Generator</h1>
-    <form id="qrForm">
-        <label for="textInput">Enter text:</label>
-        <input type="text" id="textInput" name="text" required>
-        <button type="submit">Generate QR code!</button>
-    </form>
+    <div>
+        <button id="generate-svg">Generate SVG!</button>
+        <button id="generate-jpeg">Generate JPEG!</button>
+        <button id="generate-png">Generate PNG!</button>
+    </div>
     <script>
-        document.getElementById('qrForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            let text = document.getElementById('textInput').value;
-            window.open(\`/?text=\${encodeURIComponent(url)}\`, '_blank');
+        document.getElementById('generate-svg').addEventListener('click', function() {
+            generateQRCode('svg');
         });
+
+        document.getElementById('generate-jpeg').addEventListener('click', function() {
+            generateQRCode('jpeg');
+        });
+
+        document.getElementById('generate-png').addEventListener('click', function() {
+            generateQRCode('png');
+        });
+
+        function generateQRCode(format) {
+            const svgData = '<svg xmlns="http://www.w3.org/2000/svg" ...></svg>'; // Replace with actual SVG data generation logic
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+            let img = new Image();
+            img.onload = function () {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                let link = document.createElement('a');
+                link.download = \`qr-code.\${format}\`;
+                if (format === 'svg') {
+                    link.href = 'data:image/svg+xml;base64,' + btoa(svgData);
+                } else {
+                    link.href = canvas.toDataURL(\`image/\${format}\`);
+                }
+                link.click();
+            };
+            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+        }
     </script>
     <div class="footer">
-        This service is built from the GitHub repository <a
-            href="https://github.com/xixu-me/QR-Generator" target="_blank">xixu-me/QR-Generator</a>.
+        This service is built from the GitHub repository <a href="https://github.com/xixu-me/QR-Generator"
+            target="_blank">xixu-me/QR-Generator</a>.
     </div>
 </body>
 </html>
