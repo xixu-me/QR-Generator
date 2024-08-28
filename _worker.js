@@ -1958,10 +1958,10 @@ var require_canvas = __commonJS({
                 opts = canvas;
                 canvas = void 0;
             }
-            if (!opts)
-                opts = {};
+            if (!opts) opts = {};
+            opts.type = opts.type || "image/png"; // Ensure the type is set to "image/png"
             const canvasEl = exports.render(qrData, canvas, opts);
-            const type = opts.type || "image/png";
+            const type = opts.type;
             const rendererOpts = opts.rendererOpts || {};
             return canvasEl.toDataURL(type, rendererOpts.quality);
         };
@@ -2163,3 +2163,4 @@ var src_default = {
 export {
     src_default as default
 };
+
