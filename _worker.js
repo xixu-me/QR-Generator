@@ -2027,7 +2027,20 @@ var require_svg_tag = __commonJS({
     }
 });
 
-var require_browser = __commonJS({
+"node_modules/qrcode/lib/browser.js"(exports) {
+    var canPromise = require_can_promise();
+    var QRCode2 = require_qrcode();
+    var CanvasRenderer = require_canvas();
+    var SvgRenderer = require_svg_tag();
+    function renderCanvas(renderFunc, canvas, text, opts, cb) {/*...*/}
+
+    exports.create = QRCode2.create;
+    exports.toCanvas = renderCanvas.bind(null, CanvasRenderer.render);
+    exports.toDataURL = renderCanvas.bind(null, CanvasRenderer.renderToDataURL);
+    exports.toString = renderCanvas.bind(null, function (data, _, opts) {
+        return SvgRenderer.render(data, opts);
+    });
+}var require_browser = __commonJS({
     "node_modules/qrcode/lib/browser.js"(exports) {
         var canPromise = require_can_promise();
         var QRCode2 = require_qrcode();
@@ -2096,7 +2109,12 @@ var require_browser = __commonJS({
     }
 });
 
-var import_qrcode = __toESM(require_browser());
+const QRCode = require('qrcode');
+
+QRCode.toDataURL('your text here', { type: 'image/png' }, function (err, url) {
+    if (err) throw err;
+    console.log(url);
+});
 var HTML_HOMEPAGE = `
 <!DOCTYPE html>
 <html lang="en">
