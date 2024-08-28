@@ -2128,12 +2128,56 @@ var HTML_HOMEPAGE = `
         <input type="text" id="textInput" name="text" required>
         <button type="submit">Generate QR code!</button>
     </form>
+    <div id="qrCodeContainer"></div>
+    <button id="downloadJpeg" style="display:none;">Download JPEG</button>
+    <button id="downloadPng" style="display:none;">Download PNG</button>
+    <button id="downloadSvg" style="display:none;">Download SVG</button>
     <script>
-        document.getElementById('qrForm').addEventListener('submit', function (event) {
+        document.getElementById('qrForm').addEventListener('submit', async function (event) {
             event.preventDefault();
             let text = document.getElementById('textInput').value;
-            window.open(\`/?text=\${encodeURIComponent(url)}\`, '_blank');
+            let response = await fetch(\`/?text=\${encodeURIComponent(text)}\`);
+            let svgText = await response.text();
+            let qrCodeContainer = document.getElementById('qrCodeContainer');
+            qrCodeContainer.innerHTML = svgText;
+            document.getElementById('downloadJpeg').style.display = 'block';
+            document.getElementById('downloadPng').style.display = 'block';
+            document.getElementById('downloadSvg').style.display = 'block';
         });
+
+        document.getElementById('downloadJpeg').addEventListener('click', function () {
+            downloadImage('jpeg');
+        });
+
+        document.getElementById('downloadPng').addEventListener('click', function () {
+            downloadImage('png');
+        });
+
+        document.getElementById('downloadSvg').addEventListener('click', function () {
+            downloadImage('svg');
+        });
+
+        function downloadImage(type) {
+            let svgElement = document.querySelector('#qrCodeContainer svg');
+            let svgData = new XMLSerializer().serializeToString(svgElement);
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+            let img = new Image();
+            img.onload = function () {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                let link = document.createElement('a');
+                link.download = \`qr-code.\${type}\`;
+                if (type === 'svg') {
+                    link.href = 'data:image/svg+xml;base64,' + btoa(svgData);
+                } else {
+                    link.href = canvas.toDataURL(\`image/\${type}\`);
+                }
+                link.click();
+            };
+            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+        }
     </script>
     <div class="footer">
         This service is built from the GitHub repository <a
@@ -2160,6 +2204,7 @@ var src_default = {
         });
     }
 };
+
 export {
     src_default as default
 };
