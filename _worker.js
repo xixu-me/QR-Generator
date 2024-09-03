@@ -2125,14 +2125,14 @@ var HTML_HOMEPAGE = `
     <h1>QR Generator</h1>
     <form id="qrForm">
         <label for="textInput">Enter text:</label>
-        <input type="text" id="textInput" name="url" required>
+        <input type="text" id="textInput" name="text" required>
         <button type="submit">Generate QR code!</button>
     </form>
     <script>
         document.getElementById('qrForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            let url = document.getElementById('textInput').value;
-            window.open(\`/?text=\${encodeURIComponent(url)}\`, '_blank');
+            let text = document.getElementById('textInput').value;
+            window.open(\`/?text=\${encodeURIComponent(text)}\`, '_blank');
         });
     </script>
     <div class="footer">
