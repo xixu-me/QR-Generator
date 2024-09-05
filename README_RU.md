@@ -1,8 +1,10 @@
-<p align="left">
-    <a href="README_ZH.md">汉语</a> ｜ <a href="README.md">English</a> ｜ Русский ｜ <a href="README_FR.md">Français</a> ｜ <a href="README_ES.md">Español</a> ｜ <a href="README_DE.md">Deutsch</a> ｜ <a href="README_KO.md">한국어</a>
-</p>
+<div align="center">
+
+<a href="README_ZH.md">汉语</a> ｜ <a href="README.md">English</a> ｜ Русский ｜ <a href="README_FR.md">Français</a> ｜ <a href="README_ES.md">Español</a> ｜ <a href="README_DE.md">Deutsch</a> ｜ <a href="README_KO.md">한국어</a>
 
 # QR Generator - Open Source (QG-OS)
+
+</div>
 
 ## Описание
 
