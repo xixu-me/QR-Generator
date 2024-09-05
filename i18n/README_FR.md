@@ -8,7 +8,7 @@
 
 ## Description
 
-Ce référentiel (QG-OS) est une implémentation open source de [QR Generator de Xi Xu](https://qr.xi-xu.me). QG-OS vise à fournir aux développeurs une solution de service de génération de code QR simple, rapide et gratuite.
+Ce référentiel (QG-OS) est une implémentation open source de [Xi Xu's QR Generator](https://qr.xi-xu.me). QG-OS vise à fournir aux développeurs une solution de service de génération de code QR simple, rapide et gratuite.
 
 ## Démo
 
