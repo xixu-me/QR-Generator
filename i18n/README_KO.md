@@ -8,7 +8,7 @@
 
 ## 설명
 
-이 저장소(QG-OS)는 [Xi Xu의 QR Generator](https://qr.xi-xu.me)의 오픈 소스 구현입니다. QG-OS는 개발자에게 간단하고 빠르며 무료인 QR 코드 생성 서비스 솔루션을 제공하는 것을 목표로 합니다.
+이 저장소(QG-OS)는 [Xi Xu's QR Generator](https://qr.xi-xu.me)의 오픈 소스 구현입니다. QG-OS는 개발자에게 간단하고 빠르며 무료인 QR 코드 생성 서비스 솔루션을 제공하는 것을 목표로 합니다.
 
 ## 데모
 
