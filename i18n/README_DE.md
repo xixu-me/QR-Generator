@@ -8,7 +8,7 @@
 
 ## Beschreibung
 
-Dieses Repository (QG-OS) ist eine Open-Source-Implementierung von [Xi Xus QR Generator](https://qr.xi-xu.me). QG-OS möchte Entwicklern eine einfache, schnelle und kostenlose Servicelösung zur QR-Code-Generierung bieten.
+Dieses Repository (QG-OS) ist eine Open-Source-Implementierung von [Xi Xu's QR Generator](https://qr.xi-xu.me). QG-OS möchte Entwicklern eine einfache, schnelle und kostenlose Servicelösung zur QR-Code-Generierung bieten.
 
 ## Demo
 
