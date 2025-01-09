@@ -88,6 +88,6 @@ This repository (QG-OS) is for learning and communication only. It is strictly p
 
 ## License
 
-Copyright © 2024 [Xi Xu](https://xi-xu.me). All rights reserved.
+Copyright &copy; [Xi Xu](https://xi-xu.me). All rights reserved.
 
 Licensed under the [GPL-3.0](https://github.com/xixu-me/QR-Generator/blob/main/LICENSE) license.
